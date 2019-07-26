@@ -1,13 +1,15 @@
 # Volleyball-scoreboard
-simple hardware to keep the volleyball score via a small remote operated by one of the players
+Simple hardware to keep the volleyball score via a small remote operated by one of the players
 
+A Youtube video about this project here https://youtu.be/qLoRw70-ni4
+
+#Materials
 
 Panel: https://www.buyapi.ca/product/medium-16x32-rgb-led-matrix-panel/ >> Wiring https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/new-wiring
 
 Battery: https://www.youtube.com/watch?v=bOJVbtUL_hg 
 
 Remote control: https://www.aliexpress.com/item/32962560726.html?spm=a2g0s.9042311.0.0.5f4e4c4dmDa23P
-
 
 Arduino UNO R3 https://www.aliexpress.com/item/32848546164.html?spm=2114.search0204.3.1.115f6374utWwzm&s=p&ws_ab_test=searchweb0_0%2Csearchweb201602_1_10065_10068_10130_10547_319_10059_10884_317_10548_10887_10696_321_322_10084_453_10083_454_10103_10618_10307_537_536%2Csearchweb201603_60%2CppcSwitch_0&algo_expid=88e54d9c-e84a-4e37-89d0-ad275945d81a-0&algo_pvid=88e54d9c-e84a-4e37-89d0-ad275945d81a&transAbTest=ae803_3
 
