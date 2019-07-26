@@ -41,11 +41,11 @@ rubber feet/wires you can source them yourself
 	- I used the USB opening to expose the Arduino USB socket (for future firmware updates)
 	- I used the LAN opening to vertically mount the mini USB in order to charge the battery. My case was printed from blue PLA and it is pretty transparent allowing the user to see the charge LED blinking.
 
-7. Test it. In my tests a full battery was good for 3 hours. Dollarama battery is only a 1800Mah so using a 2600Mah should provide at least an extra hour.	
+7. Test it! In my tests a fully charged battery was good for 3 hours. Dollarama battery is only a 1800Mah so using a 2600Mah should provide at least an extra hour.	
 
 Possible future improvements
  - a new case for this very purpose 
  - multi sport (e.g. basketball, tennis)
  - a better battery
- - use the Arduino USB socket for charging rather than the mini USB.
- - and last but not least display at some point the batter level since it dies suddenly when a threshold in the battery voltage is being reached.
+ - use the Arduino USB socket also for charging(e.g. when the toggle switch is off) and rid of the mini USB.
+ - and last but not least display at some point the battery level since currently it dies suddenly when a threshold in the battery voltage is being reached.
