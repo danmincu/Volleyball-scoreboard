@@ -74,7 +74,44 @@ int valueA = 0;  // variable to store the value read
 
 int digitalPinA = 13;
 int digitalPinB = 12;
+int serve = 0;
+int consecutive_left_winnings = 0;
+int consecutive_right_winnings = 0;
 
+// I am not using a stack to keep the serve when the score is being decreased. not yet, due to lack of time :)
+// also the consecutive X winnings are beiing wrongly reset when the score is added to the adversary
+void showServe(void){
+
+  int x = 0;
+  if (serve == 1)
+  {    
+    for (int x = 1; x < 12; x++)
+    {
+      if (consecutive_left_winnings > 0 && consecutive_left_winnings % 5 == 0)
+      {
+        matrix.drawPixel(x, 14, matrix.Color333(1,0,0));
+      }
+      else
+      {
+        matrix.drawPixel(x, 14, matrix.Color333(0,0,1));
+      }
+    }
+  }  
+  if (serve == -1)
+  {
+    for (int x = 3; x < 14; x++)
+    {
+      if (consecutive_right_winnings > 0 && consecutive_right_winnings % 5 == 0)
+      {
+         matrix.drawPixel(16 + x, 14, matrix.Color333(1,0,0));
+      }
+      else
+      {      
+        matrix.drawPixel(16 + x, 14, matrix.Color333(0,0,1));
+      }
+    }
+  }
+}
 
 void winningAnimation(void){
   byte i;
@@ -125,6 +162,7 @@ void loop() {
       blink_down != blink_down;
    }
 
+   showServe();
 
    if (winning_animation)
    {
@@ -181,7 +219,10 @@ void loop() {
       {
         left_score = 0;
         right_score = 0;
+        serve = 0;
         winning_animation = false;
+        consecutive_right_winnings = 0;
+        consecutive_left_winnings = 0;
       }
       valueA = 0;
       valueB = 0;
@@ -196,6 +237,12 @@ void loop() {
  {
    if (right_score > 0)
       {
+     //   serve = 0;
+        if (consecutive_right_winnings > 0)
+        {
+          consecutive_right_winnings --;
+        }
+
         right_score -= 1;        
         delay(delay_time);
         blink_down = true;
@@ -211,6 +258,11 @@ void loop() {
  { 
    if (left_score > 0)
    {
+    //  serve = 0;
+      if (consecutive_left_winnings > 0)
+      {
+        consecutive_left_winnings --;
+      }
       left_score -= 1;
       blink_down = true;        
       delay(delay_time);
@@ -223,6 +275,9 @@ void loop() {
    else
    if (valueA > 0)
     {
+      consecutive_left_winnings++;
+      consecutive_right_winnings = 0;
+      serve = 1;
       left_score += 1;
       delay(delay_time);
       // win by 2
@@ -234,6 +289,9 @@ void loop() {
     else
     if (valueB > 0)
     {
+      consecutive_left_winnings = 0;
+      consecutive_right_winnings++;
+      serve = -1;
       right_score += 1;
       delay(delay_time);
       // win by 2
