@@ -8,6 +8,9 @@
 #define B   A1
 #define C   A2
 
+
+// To compile one needs to install Adafruit Gfx library 1.1.1, Adafruit RGB Matrix 1.5.6 & PinChangeInterrupt 1.2.6
+
 // Last parameter = 'true' enables double-buffering, for flicker-free,
 // buttery smooth animation.  Note that NOTHING WILL SHOW ON THE DISPLAY
 // until the first call to swapBuffers().  This is normal.
@@ -196,6 +199,11 @@ void loop() {
         right_score -= 1;        
         delay(delay_time);
         blink_down = true;
+        
+        if (!((left_score >= 25  && (left_score - right_score > 1)) || (right_score >= 25 && (right_score - left_score > 1))))
+        {
+          winning_animation = false;
+        }
       }
  } else
  
@@ -206,6 +214,10 @@ void loop() {
       left_score -= 1;
       blink_down = true;        
       delay(delay_time);
+      if (!((left_score >= 25  && (left_score - right_score > 1)) || (right_score >= 25 && (right_score - left_score > 1))))
+      {
+        winning_animation = false;
+      }
    }
  }
    else
